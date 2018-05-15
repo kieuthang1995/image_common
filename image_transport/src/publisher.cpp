@@ -174,7 +174,7 @@ void Publisher::publish(const sensor_msgs::ImageConstPtr& message) const
   }
   
   BOOST_FOREACH(const boost::shared_ptr<PublisherPlugin>& pub, impl_->publishers_) {
-    if (pub->getNumSubscribers() > 0)
+    if (pub->getNumSubscribers() > 10)
       pub->publish(message);
   }
 }
